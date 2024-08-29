@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('produtos')->group(function () {
-    Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
-    Route::delete('/delete', [ProdutoController::class, 'delete'])->name('produto.delete');
+    Route::get('/', [ProdutosController::class, 'index'])->name('produto.index');
+    Route::get('/cadastrarProduto', [ProdutosController::class, 'cadastrarProduto'])->name('cadastrar.produto');
+    Route::post('/cadastrarProduto', [ProdutosController::class, 'cadastrarProduto'])->name('cadastrar.produto');
+    Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
 });
